@@ -14,17 +14,24 @@
             <img src="public/img/logo.svg" alt="logo" class="logo">
             <div class="navbuttons">
                 <a href="login.html">Logowanie</a>
-                <a href="register.html">Rejestracja</a>
+                <a href="register.php">Rejestracja</a>
             </div>
         </nav>
         <div class="login-container">
-            <form>
+            <form action="login" method="post">
                 <div class="messages">
                     <h1>Witaj w Dzienniczku Dawcy!</h1><br>
+
+                    <?php
+                    if (isset($messages)){
+                        foreach ($messages as $message){
+                            echo $message;
+                        }
+                    }
+                    ?>
                 </div>
                 <input name="email" type="text" placeholder="email@email.com">
                 <input name="password" type="password" placeholder="password">
-                <a href="resetpass.html" class="resetPass">Resetowanie hasła</a>
                 <button type="submit">Zaloguj się</button>
             </form>
         </div>

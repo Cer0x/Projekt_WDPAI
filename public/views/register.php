@@ -13,7 +13,7 @@
         <nav>
             <img src="public/img/logo.svg" alt="logo" class="logo">
             <div class="navbuttons">
-                <a href="login.html">Logowanie</a>
+                <a href="login.php">Logowanie</a>
                 <a href="register.html">Rejestracja</a>
             </div>
         </nav>

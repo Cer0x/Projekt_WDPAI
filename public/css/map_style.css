@@ -151,31 +151,6 @@ button {
     font-size: 1em;
 }
 
-.addEntry {
-    background: white;
-    box-shadow: 0px 3px 6px #00000029;
-    border-radius: 19px;
-
-    width: 215px;
-    border: solid 2px #cf3131;
-
-    color: black;
-    margin: 1em;
-    line-height: 2.5em;
-    text-align: center;
-    text-decoration: none;
-
-}
-
-input {
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid gray;
-    padding: 1em;
-    margin: 1em;
-    width: 50%;
-    font-size: 0.6em;
-}
 
 
 @media only screen and (max-device-width: 420px) {

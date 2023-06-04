@@ -3,9 +3,9 @@
 
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Outfit">
-    <link rel="stylesheet" type="text/css" href="public/css/userstat_style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/map_style.css">
     <script src="https://kit.fontawesome.com/4417060088.js" crossorigin="anonymous"></script>
-    <title>Status</title>
+    <title>Mapa</title>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
                 <ul>
                     <li>
                         <i class="fa-sharp fa-solid fa-notes-medical"></i>
-                        <a href="entries.html" class="button">Wpisy</a>
+                        <a href="entries.php" class="button">Wpisy</a>
                     </li>
                     <li>
                         <i class="fa-regular fa-map"></i>
@@ -30,19 +30,17 @@
                     </li>
                     <li>
                         <i class="fa-sharp fa-solid fa-medal"></i>
-                        <a href="userstat.html" class="button">Status</a>
+                        <a href="userstat.php" class="button">Status</a>
                     </li>
                 </ul>
             </nav>
 
-            <div class="stat-container">
-                <div class="stat-bg">
-                    <h2 id="user_stat">Stopień zasłużonego Dawcy:</h2>
-                    <h3>1 STOPIEŃ</h3>
-                    <i class="fa-sharp fa-solid fa-medal" style="font-size: 10em; color: gold;"></i>
-                    <i class="fa-sharp fa-solid fa-medal" style="font-size: 10em; color: silver;"></i>
-                    <i class="fa-sharp fa-solid fa-medal" style="font-size: 10em; color: #b08d57;"></i>
+            <div class="map-container">
+                <div class="map-bg">
+                <h2>Mapa punktów RCKiK</h2>
 
+                    <iframe src="https://www.google.com/maps/d/embed?mid=142nqMIgmK3tCarABCmdvq8MHGlNZZPMB"
+                        class="map"></iframe>
                 </div>
 
 
@@ -82,11 +80,11 @@
                 <ul>
                     <li>
                         <i class="fa fa-solid fa-notes"></i>
-                        <a href="entries.html" class="button">Wpisy</a>
+                        <a href="entries.php" class="button">Wpisy</a>
                     </li>
                     <li>
                         <i class="fa-regular fa-map"></i>
-                        <a href="map.html" class="button">Mapa</a>
+                        <a href="map.php" class="button">Mapa</a>
                     </li>
                     <li>
                         <i class="fa-sharp fa-solid fa-medal"></i>
