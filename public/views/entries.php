@@ -22,15 +22,15 @@
                 <ul>
                     <li>
                         <i class="fa-sharp fa-solid fa-notes-medical"></i>
-                        <a href="entries.html" class="button">Wpisy</a>
+                        <a href="entries" class="button">Wpisy</a>
                     </li>
                     <li>
                         <i class="fa-regular fa-map"></i>
-                        <a href="map.php" class="button">Mapa</a>
+                        <a href="map" class="button">Mapa</a>
                     </li>
                     <li>
                         <i class="fa-sharp fa-solid fa-medal"></i>
-                        <a href="userstat.php" class="button">Status</a>
+                        <a href="userstat" class="button">Status</a>
                     </li>
                 </ul>
             </nav>
@@ -49,59 +49,22 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <?php
+                        foreach ($entries as $entry):{
+
+                        }
+                        ?>
                             <tr>
-                                <td>01.01.2022</td>
-                                <td>450ml</td>
-                                <td>+2 kropelki</td>
+                                <td><?= $entry->getDateOfEntry(); ?></td>
+                                <td><?= $entry->getBloodAmount(); ?></td>
+                                <td><?= $entry->getNotes();?></td>
                             </tr>
-                            <tr>
-                                <td>01.01.2022</td>
-                                <td>450ml</td>
-                                <td>+2 kropelki</td>
-                            </tr>
-                            <tr>
-                                <td>01.01.2022</td>
-                                <td>450ml</td>
-                                <td>+2 kropelki</td>
-                            </tr>
-                            <tr>
-                                <td>01.01.2022</td>
-                                <td>450ml</td>
-                                <td>+2 kropelki</td>
-                            </tr>
-                            <tr>
-                                <td>01.01.2022</td>
-                                <td>450ml</td>
-                                <td>+2 kropelki</td>
-                            </tr>
-                            <tr>
-                                <td>01.03.2022</td>
-                                <td>450ml</td>
-                                <td>+2 kropelki</td>
-                            </tr>
-                            <tr>
-                                <td>01.05.2022</td>
-                                <td>450ml</td>
-                                <td>+2 kropelki</td>
-                            </tr>
-                            <tr>
-                                <td>01.07.2022</td>
-                                <td>450ml</td>
-                                <td>+2 kropelki, wymiana na kocyk</td>
-                            </tr>
-                            <tr>
-                                <td>01.09.2022</td>
-                                <td>450ml</td>
-                                <td>+2 kropelki</td>
-                            </tr>
-                            <tr>
-                                <td>01.11.2022</td>
-                                <td>450ml</td>
-                                <td>+2 kropelki</td>
-                            </tr>
+                        <?php
+                            endforeach;
+                        ?>
                         </tbody>
                     </table>
-                    <a href="addEntry.html" class="addEntry">Dodawanie wpisu</a>
+                    <a href="addEntry" class="addEntry">Dodawanie wpisu</a>
                 </div>
 
 

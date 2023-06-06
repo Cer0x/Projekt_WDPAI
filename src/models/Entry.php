@@ -1,7 +1,5 @@
 <?php
 
-namespace models;
-
 class Entry
 {
     private $dateOfEntry;

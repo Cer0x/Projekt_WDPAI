@@ -22,15 +22,15 @@
                 <ul>
                     <li>
                         <i class="fa-sharp fa-solid fa-notes-medical"></i>
-                        <a href="entries.php" class="button">Wpisy</a>
+                        <a href="entries" class="button">Wpisy</a>
                     </li>
                     <li>
                         <i class="fa-regular fa-map"></i>
-                        <a href="map.html" class="button">Mapa</a>
+                        <a href="map" class="button">Mapa</a>
                     </li>
                     <li>
                         <i class="fa-sharp fa-solid fa-medal"></i>
-                        <a href="userstat.php" class="button">Status</a>
+                        <a href="userstat" class="button">Status</a>
                     </li>
                 </ul>
             </nav>

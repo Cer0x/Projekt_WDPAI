@@ -1,9 +1,5 @@
 <?php
 
-namespace controllers;
-use models\Entry;
-use repository\EntryRepository;
-
 require_once 'AppController.php';
 require_once __DIR__ .'/../models/Entry.php';
 require_once __DIR__.'/../repository/EntryRepository.php';
@@ -21,7 +17,11 @@ class EntryController extends AppController
         parent::__construct();
         $this->entryRepository = new EntryRepository();
     }
-
+    public function entries()
+    {
+        $entries = $this->entryRepository->getEntries();
+        $this->render('entries', ['entries' => $entries]);
+    }
     public function addEntry()
     {
         if ($this->isPost()) {
@@ -29,8 +29,12 @@ class EntryController extends AppController
             $entry = new Entry($_POST['dateOfEntry'], $_POST['bloodAmount'], $_POST['notes']);
             $this->entryRepository->addEntry($entry);
 
-            return $this->render('entries', ['messages' => $this->message]);
+            return $this->render('entries', [
+                'entries' => $this->entryRepository->getEntries(),
+                'messages' => $this->message
+            ]);
         }
-        return $this->render('add-entry', ['messages' => $this->message]);
+        return $this->render('addEntry', ['messages' => $this->message]);
+
     }
 }

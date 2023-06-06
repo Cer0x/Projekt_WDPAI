@@ -14,8 +14,22 @@ class DefaultController extends AppController {
         $this->render('login');
     }
 
-    public function entries()
+
+    public function map()
     {
-        $this->render('entries');
+        $this->render('map');
+    }
+    public function userstat()
+    {
+        $this->render('userstat');
+    }
+
+    public function addEntry()
+    {
+        $this->render('addEntry');
+    }
+    public function register()
+    {
+        $this->render('register');
     }
 }
