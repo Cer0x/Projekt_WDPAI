@@ -19,22 +19,45 @@ class EntryController extends AppController
     }
     public function entries()
     {
-        $entries = $this->entryRepository->getEntries();
-        $this->render('entries', ['entries' => $entries]);
+        session_start();
+        if(isset($_SESSION['UID'])) {
+            $entries = $this->entryRepository->getEntries();
+            return $this->render('entries', ['entries' => $entries]);
+        }
+        return $this->render('login', ['messages' => ['Zaloguj się']]);
+
     }
     public function addEntry()
     {
-        if ($this->isPost()) {
+        session_start();
+        if(isset($_SESSION['UID'])) {
 
-            $entry = new Entry($_POST['dateOfEntry'], $_POST['bloodAmount'], $_POST['notes']);
-            $this->entryRepository->addEntry($entry);
+            if ($this->isPost()) {
 
-            return $this->render('entries', [
-                'entries' => $this->entryRepository->getEntries(),
-                'messages' => $this->message
-            ]);
+                $entry = new Entry($_POST['dateOfEntry'], $_POST['bloodAmount'], $_POST['notes'], $_SESSION['UID']);
+                $this->entryRepository->addEntry($entry);
+
+                return $this->render('entries', [
+                    'entries' => $this->entryRepository->getEntries(),
+                    'messages' => $this->message
+                ]);
+            }
+            return $this->render('addEntry', ['messages' => $this->message]);
         }
-        return $this->render('addEntry', ['messages' => $this->message]);
+
+        return $this->render('login', ['messages' => ['Zaloguj się']]);
 
     }
+
+    public function userstat()
+    {
+        session_start();
+        if(isset($_SESSION['UID'])) {
+            $stat = $this->entryRepository->getUserStats();
+            return $this->render('userstat', ['stat' => $stat]);
+        }
+        return $this->render('login', ['messages' => ['Zaloguj się']]);
+
+    }
+
 }

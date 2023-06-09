@@ -6,25 +6,24 @@ require_once __DIR__ . '/../models/Entry.php';
 class EntryRepository extends Repository
 {
 
-    public function getEntry(int $id): ?Entry
+    public function getUserStats(): int
     {
+        session_start();
+        $assignedById = $_SESSION['UID'];
+
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM entries WHERE id = :id
+            SELECT SUM(bloodamount) as suma FROM entries WHERE id_assigned_by = :id_assigned_by
         ');
-        $stmt->bindParam(':id', $$id, PDO::PARAM_INT);
+        $stmt->bindParam(':id_assigned_by', $assignedById, PDO::PARAM_INT);
         $stmt->execute();
 
         $entry = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$entry) {
-            return null;
+            return 0;
         }
 
-        return new Entry(
-            $entry['dateOfEntry'],
-            $entry['bloodAmount'],
-            $entry['notes']
-        );
+        return $entry['suma'];
     }
 
     public function getEntries(): array
@@ -32,14 +31,13 @@ class EntryRepository extends Repository
         $result = [];
 
         $stmt = $this ->database->connect()->prepare(
-//            'SELECT * FROM entries ORDER BY "dateOfEntry" WHERE id_assigned_by = :id_assigned_by  ASC LIMIT 10;'
-            'SELECT * FROM entries WHERE id_assigned_by = :id_assigned_by ORDER BY "dateOfEntry"  ASC LIMIT 10;'
+            'SELECT * FROM entries WHERE id_assigned_by = :id_assigned_by ORDER BY "dateOfEntry"  DESC LIMIT 10;'
         );
 
-        //TODO get id from session
-        $assignedById = 1;
+
+        $assignedById = $_SESSION['UID'];
         $stmt->bindValue(':id_assigned_by', $assignedById, PDO::PARAM_INT);
-        $stmt ->execute();
+        $stmt->execute();
 
 
         $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -47,20 +45,22 @@ class EntryRepository extends Repository
             $result[] = new Entry(
                 $entry['dateOfEntry'],
                 $entry['bloodamount'],
-                $entry['notes']
+                $entry['notes'],
+                $entry['id_assigned_by']
+
             );
         }
         return $result;
     }
     public function addEntry(Entry $entry): void{
-
+        session_start();
         $stmt = $this->database->connect()->prepare('
             INSERT INTO entries (bloodamount, notes, id_assigned_by)
             VALUES (:bloodamount, :notes, :id_assigned_by)
         ');
 
-        //TODO get id from session
-        $assignedById = 1;
+
+        $assignedById = $_SESSION['UID'];
 
         $stmt->bindValue(':bloodamount', $entry->getBloodAmount(), PDO::PARAM_INT);
         $stmt->bindValue(':notes', $entry->getNotes());
@@ -68,4 +68,6 @@ class EntryRepository extends Repository
 
         $stmt->execute();
     }
+
+
 }

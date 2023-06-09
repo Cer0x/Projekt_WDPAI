@@ -72,6 +72,7 @@ footer p{
 }
 
 
+
 form {
     display: flex;
     flex-direction: column;
@@ -84,6 +85,13 @@ form {
     box-shadow: 0px 6px 6px #00000029;
     border: 1px solid #707070;
     border-radius: 33px;
+}
+
+.invalid{
+    border:3px solid #8D2020;
+    border-radius: 1em;
+    box-shadow: 0 0 0.2em #8D2020;
+    outline: none;
 }
 
 button {
@@ -112,7 +120,6 @@ button {
     line-height: 2.5em;
     text-align: center;
     text-decoration: none;
-
 }
 
 input {

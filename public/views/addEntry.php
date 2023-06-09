@@ -13,7 +13,8 @@
         <nav>
             <img src="public/img/logo.svg" alt="logo" class="logo">
             <div class="navbuttons">
-                <a href="#">Wyloguj się</a>
+                <?php if($_SESSION['isAdmin'] == 1) echo '<a href="register">Rejestracja (ADMIN)</a>'?>
+                <a href="logout">Wyloguj się</a>
             </div>
         </nav>
         <div class="addEntry-container">

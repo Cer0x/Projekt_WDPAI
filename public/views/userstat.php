@@ -13,11 +13,14 @@
         <nav class="navtop">
             <img src="public/img/logo.svg" alt="logo" class="logo">
             <div class="navbuttons">
-                <a href="#">Wyloguj się</a>
+                <?php if($_SESSION['isAdmin'] == 1) echo '<a href="register">Rejestracja (ADMIN)</a>'?>
+                <a href="logout">Wyloguj się</a>
             </div>
         </nav>
 
         <div class="main-container">
+
+
             <nav class="navleft">
                 <ul>
                     <li>
@@ -36,12 +39,39 @@
             </nav>
 
             <div class="stat-container">
+
+
                 <div class="stat-bg">
-                    <h2 id="user_stat">Stopień zasłużonego Dawcy:</h2>
-                    <h3>1 STOPIEŃ</h3>
-                    <i class="fa-sharp fa-solid fa-medal" style="font-size: 10em; color: gold;"></i>
-                    <i class="fa-sharp fa-solid fa-medal" style="font-size: 10em; color: silver;"></i>
-                    <i class="fa-sharp fa-solid fa-medal" style="font-size: 10em; color: #b08d57;"></i>
+
+                    <p><?php
+
+                        if (isset($stat)){
+                            switch ($stat){
+                                case $stat >= 6000:
+                                    echo '
+                                          <h2 id="user_stat">Stopień zasłużonego Dawcy:</h2>
+                                          <h3>3 STOPIEŃ</h3>
+                                          <i class="fa-sharp fa-solid fa-medal" style="font-size: 10em; color: #b08d57;"></i>';
+                                    break;
+                                case $stat >= 12000:
+                                    echo '
+                                          <h2 id="user_stat">Stopień zasłużonego Dawcy:</h2>
+                                          <h3>2 STOPIEŃ</h3>
+                                          <i class="fa-sharp fa-solid fa-medal" style="font-size: 10em; color: silver;"></i>';
+                                    break;
+                                case $stat >= 18000:
+                                    echo '
+                                          <h2 id="user_stat">Stopień zasłużonego Dawcy:</h2>
+                                          <h3>1 STOPIEŃ</h3>
+                                          <i class="fa-sharp fa-solid fa-medal" style="font-size: 10em; color: gold;"></i>';
+                                    break;
+
+                            }
+                            echo "<h3>Oddałeś $stat ml krwi.</h3>";
+                            echo "<h4> Oddaj więcej, aby zostać zasłużonym Dawcą!</h4>";
+                        }
+                        ?></p>
+
 
                 </div>
 

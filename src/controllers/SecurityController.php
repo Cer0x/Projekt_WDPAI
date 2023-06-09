@@ -15,6 +15,7 @@ class SecurityController extends AppController
     }
     public function login()
     {
+        session_start();
         $userRepository = new UserRepository();
         if (!$this->isPost()) {
             return $this->render('login');
@@ -36,13 +37,24 @@ class SecurityController extends AppController
         if ($user->getPassword() !== $password) {
             return $this->render('login', ['messages' => ['Złe hasło!']]);
         }
+        $_SESSION['UID'] = $user->getUserID();
+        $_SESSION['isAdmin'] = $user->getisadmin();
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/entries");
     }
 
+    public function logout()
+    {
+        session_start();
+        session_unset();
+        session_destroy();
+        return $this->render('login', ['messages' => ['Wylogowano pomyślnie']]);
+    }
+
     public function register()
     {
+        session_start();
         if (!$this->isPost()) {
             return $this->render('register');
         }
@@ -54,19 +66,22 @@ class SecurityController extends AppController
         $surname = $_POST['surname'];
         $phone = $_POST['phone'];
         $isadmin = $_POST['isadmin'];
+        $uid = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(64/strlen($x)) )),1,64);
 
         if ($password !== $confirmedPassword) {
             return $this->render('register', ['messages' => ['Hasła się nie zgadzają']]);
         }
 
-        //TODO try to use better hash function
-        $user = new User($email, md5($password), $name, $surname, $phone, $isadmin);
+        $user = new User($email, md5($password), $name, $surname, $phone, $isadmin, $uid);
         $user->setPhone($phone);
         $user->setisadmin($isadmin);
+        $user->setUserID($uid);
 
         $this->userRepository->addUser($user);
 
+
         return $this->render('login', ['messages' => ['Rejestracja przebiegła pomyślnie!']]);
     }
+
 
 }

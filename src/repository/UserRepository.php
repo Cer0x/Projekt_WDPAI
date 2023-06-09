@@ -25,7 +25,8 @@ class UserRepository extends Repository
             $user['name'],
             $user['surname'],
             $user['phone'],
-            $user['isadmin']
+            $user['isadmin'],
+            $user['id']
         );
     }
 

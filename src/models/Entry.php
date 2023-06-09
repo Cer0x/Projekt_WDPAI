@@ -6,13 +6,28 @@ class Entry
     private $bloodAmount;
     private $notes;
 
+    private $UID;
 
-    public function __construct($dateOfEntry, $bloodAmount, $notes)
+    public function __construct($dateOfEntry, $bloodAmount, $notes, $UID)
     {
         $this->dateOfEntry = $dateOfEntry;
         $this->bloodAmount = $bloodAmount;
         $this->notes = $notes;
+        $this->UID = $UID;
     }
+
+    public function getUID()
+    {
+        return $this->UID;
+    }
+
+
+    public function setUID($UID)
+    {
+        $this->UID = $UID;
+    }
+
+
 
     public function getDateOfEntry()
     {
@@ -47,8 +62,5 @@ class Entry
     {
         $this->notes = $notes;
     }
-
-
-
 
 }

@@ -6,30 +6,53 @@ class DefaultController extends AppController {
 
     public function index()
     {
-        $this->render('login');
+        session_start();
+        return $this->render('login');
     }
 
     public function login()
     {
-        $this->render('login');
+        session_start();
+        return $this->render('login');
+
+        return $this->render('login', ['messages' => ['Zaloguj się']]);
     }
 
 
     public function map()
     {
-        $this->render('map');
+        session_start();
+        if(isset($_SESSION['UID'])){
+            return $this->render('map');
+        }
+
+        return $this->render('login', ['messages' => ['Zaloguj się']]);
     }
     public function userstat()
     {
-        $this->render('userstat');
+        session_start();
+        if(isset($_SESSION['UID'])){
+            return $this->render('userstat');
+        }
+
+        return $this->render('login', ['messages' => ['Zaloguj się']]);
     }
+
+
 
     public function addEntry()
     {
-        $this->render('addEntry');
+        session_start();
+        if(isset($_SESSION['UID'])){
+            return $this->render('addEntry');
+        }
+
+        return $this->render('login', ['messages' => ['Zaloguj się']]);
     }
     public function register()
     {
-        $this->render('register');
+        session_start();
+        return $this->render('register');
+
     }
 }

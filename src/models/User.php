@@ -9,6 +9,19 @@ class User
     private $phone;
     private $isadmin;
 
+    private $userID;
+
+    public function __construct(string $email, string $password, string $name, string $surname, string $phone, string $isadmin, string $userID)
+    {
+        $this->email = $email;
+        $this->password = $password;
+        $this->name = $name;
+        $this->surname = $surname;
+        $this->phone = $phone;
+        $this->isadmin = $isadmin;
+        $this->userID = $userID;
+    }
+
     public function getPhone()
     {
         return $this->phone;
@@ -31,15 +44,6 @@ class User
     }
 
 
-    public function __construct(string $email, string $password, string $name, string $surname, string $phone, string $isadmin)
-    {
-        $this->email = $email;
-        $this->password = $password;
-        $this->name = $name;
-        $this->surname = $surname;
-        $this->phone = $phone;
-        $this->isadmin = $isadmin;
-    }
 
     public function getEmail(): string
     {
@@ -81,6 +85,16 @@ class User
     public function setSurname(string $surname)
     {
         $this->surname = $surname;
+    }
+
+    public function getUserID(): string
+    {
+        return $this->userID;
+    }
+
+    public function setUserID(string $userID)
+    {
+        $this->userID = $userID;
     }
 
 

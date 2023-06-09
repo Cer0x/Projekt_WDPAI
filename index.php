@@ -9,11 +9,12 @@ Router::get('', 'DefaultController');
 Router::post('login', 'SecurityController');
 Router::get('entries', 'EntryController');
 Router::get('map', 'DefaultController');
-Router::get('userstat', 'DefaultController');
+Router::get('userstat', 'EntryController');
 Router::get('addEntry', 'DefaultController');
 Router::post('addEntry', 'EntryController');
 Router::get('register', 'DefaultController');
 Router::post('register', 'SecurityController');
+Router::get('logout', 'SecurityController');
 
 
 Router::run($path);

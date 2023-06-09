@@ -66,6 +66,8 @@ footer p{
     height: 10vh;
 }
 
+
+
 .register-container {
     width: 66%;
 }
@@ -84,7 +86,12 @@ form {
     border: 1px solid #707070;
     border-radius: 33px;
 }
-
+.invalid{
+    border:3px solid #8D2020;
+    border-radius: 1em;
+    box-shadow: 0 0 0.2em #8D2020;
+    outline: none;
+}
 button {
     background: transparent linear-gradient(180deg, #cf3131 0%, #8d2020 100%) 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
@@ -98,21 +105,6 @@ button {
     font-size: 1em;
 }
 
-.resetPass {
-    background: white;
-    box-shadow: 0px 3px 6px #00000029;
-    border-radius: 19px;
-
-    width: 50%;
-    border: solid 2px #cf3131;
-
-    color: black;
-    margin: 1em;
-    line-height: 2.5em;
-    text-align: center;
-    text-decoration: none;
-
-}
 
 input {
     background-color: transparent;
