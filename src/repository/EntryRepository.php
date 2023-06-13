@@ -25,6 +25,25 @@ class EntryRepository extends Repository
 
         return $entry['suma'];
     }
+    public function getNextDate(): string
+    {
+        session_start();
+        $assignedById = $_SESSION['UID'];
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT (MAX("dateOfEntry") + INTERVAL \'8 weeks\')::date AS "newDate" FROM entries WHERE id_assigned_by = :id_assigned_by
+        ');
+        $stmt->bindParam(':id_assigned_by', $assignedById, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $date = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$date or !$date['newDate']) {
+            return date('Y-m-d');
+        }
+
+        return $date['newDate'];
+    }
 
     public function getEntries(): array
     {

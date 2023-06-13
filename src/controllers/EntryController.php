@@ -22,7 +22,10 @@ class EntryController extends AppController
         session_start();
         if(isset($_SESSION['UID'])) {
             $entries = $this->entryRepository->getEntries();
-            return $this->render('entries', ['entries' => $entries]);
+            return $this->render('entries', [
+                'entries' => $entries,
+                'nextDate' => $this->entryRepository->getNextDate(),
+            ]);
         }
         return $this->render('login', ['messages' => ['Zaloguj się']]);
 

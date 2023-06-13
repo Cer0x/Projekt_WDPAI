@@ -16,7 +16,7 @@ body {
 }
 
 
-a{
+a, button, .altButton{
     font-family: "Roboto";
 }
 
@@ -31,21 +31,8 @@ nav{
     color: white;
 
 }
-footer{
-    display: flex;
-    height: 12.5vh;
-    width: 100vw;
-    background-color: #cf3131;
-    text-align: end;
-    color: white;
-}
 
-footer p{
-    text-align: center;
-    width: 100%;
-    padding: 2vh;
 
-}
 
 .navbuttons{
     display: flex;
@@ -116,11 +103,25 @@ input {
     font-size: 0.6em;
 }
 
+footer{
+    display: flex;
+    height: 12.5vh;
+    width: 100vw;
+    background-color: #cf3131;
+    text-align: end;
+    color: white;
+}
+
+footer p{
+    text-align: center;
+    width: 100%;
+    padding: 2vh;
+
+}
+
 
 @media only screen and (max-device-width: 420px) {
-    body{
-        font-size: 30px;
-    }
+
     
     .container {
         flex-direction: column;
@@ -136,10 +137,14 @@ input {
 
     form{
         height:75vh;
+        font-size: 1.5em;
+    }
+    h1{
+        font-size: 2em;
     }
 
     nav a{
-        font-size: 1em;
+        font-size: 1.5em;
         display:flex;
         flex-direction: column;
     }

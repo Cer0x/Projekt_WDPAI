@@ -40,7 +40,7 @@
 
                 <div class="messages">
                     <h2>Następny raz możesz oddać krew w dniu</h2>
-                    <h1>dd.mm.yyyy</h1>
+                    <h1><?= $nextDate ?></h1>
                     <table>
                         <thead>
                             <tr>
@@ -67,7 +67,7 @@
                         ?>
                         </tbody>
                     </table>
-                    <a href="addEntry" class="addEntry">Dodawanie wpisu</a>
+                    <a href="addEntry" class="altButton">Dodawanie wpisu</a>
                 </div>
 
 

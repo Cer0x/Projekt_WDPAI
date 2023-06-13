@@ -16,7 +16,7 @@ body {
     align-items: center;
 }
 
-a{
+a, button, .altButton{
     font-family: "Roboto";
 }
 
@@ -32,21 +32,7 @@ nav{
     color: white;
 
 }
-footer{
-    display: flex;
-    height: 12.5vh;
-    width: 100vw;
-    background-color: #cf3131;
-    text-align: end;
-    color: white;
-}
 
-footer p{
-    text-align: center;
-    width: 100%;
-    padding: 2vh;
-
-}
 
 .navbuttons{
     display: flex;
@@ -107,7 +93,7 @@ button {
     font-size: 1em;
 }
 
-.resetPass {
+.altButton {
     background: white;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 19px;
@@ -132,7 +118,20 @@ input {
     font-size: 0.6em;
 }
 
+footer{
+    display: flex;
+    height: 12.5vh;
+    width: 100vw;
+    background-color: #cf3131;
+    text-align: end;
+    color: white;
+}
 
+footer p {
+    text-align: center;
+    width: 100%;
+    padding: 2vh;
+}
 @media only screen and (max-device-width: 420px) {
     body{
         font-size: 30px;

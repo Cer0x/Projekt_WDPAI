@@ -16,7 +16,7 @@ body {
     align-items: center;
 }
 
-a{
+a, button, .altButton{
     font-family: "Roboto";
 }
 
@@ -51,12 +51,12 @@ footer p{
 .navbuttons{
     display: flex;
 }
-.navbuttons a {
+.navbuttons a   {
     flex-direction:column;
     color: white;
     text-decoration: none;
     margin: auto 15px;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .logo {
@@ -115,7 +115,9 @@ input {
     body{
         font-size: 30px;
     }
-    
+    h1{
+        font-size: 2em;
+    }
     .container {
         flex-direction: column;
     }
@@ -130,6 +132,7 @@ input {
 
     form{
         height:75vh;
+        font-size: 1.5em;
     }
 
     nav a{
