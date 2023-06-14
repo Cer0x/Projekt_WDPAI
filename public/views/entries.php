@@ -64,6 +64,7 @@
                             </tr>
                         <?php
                             endforeach;
+                        echo $_SESSION['UID'];
                         ?>
                         </tbody>
                     </table>

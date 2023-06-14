@@ -66,12 +66,12 @@ class SecurityController extends AppController
         $surname = $_POST['surname'];
         $phone = $_POST['phone'];
         $isadmin = $_POST['isadmin'];
-        $uid = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(64/strlen($x)) )),1,64);
+        $uid = "";
 
         if ($password !== $confirmedPassword) {
             return $this->render('register', ['messages' => ['Hasła się nie zgadzają']]);
         }
-
+;
         $user = new User($email, md5($password), $name, $surname, $phone, $isadmin, $uid);
         $user->setPhone($phone);
         $user->setisadmin($isadmin);
